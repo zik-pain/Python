@@ -1,0 +1,12 @@
+import telebot
+token = '849093926:AAEnsmsKcrCMF8uUlXhV_Ad_mx4eQgzu-RY'
+bot = telebot.TeleBot(token)
+@bot.message_handler(content_types = ["text"])
+def handle_text(message):
+    if message.text == "Hello":
+        bot.send_message(message.chat.id, "Hello")
+    elif message.text == "Bye":
+        bot.send_message(message.chat.id, "Bye")
+    else:
+        bot.send_message(message.chat.id, "Error")
+bot.polling(none_stop=True, interval=0)
